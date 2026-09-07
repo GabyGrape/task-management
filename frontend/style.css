@@ -1,0 +1,165 @@
+:root {
+  --primary: #4f46e5;
+  --bg: #f3f4f6;
+  --card-bg: #ffffff;
+  --text: #1f2937;
+  --danger: #ef4444;
+  --success: #10b981;
+  --border: #e5e7eb;
+}
+
+/* Fix Global Anti-Overflow */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* Menghindari scroll horizontal tidak sengaja */
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0.75rem; /* Padding lebih aman untuk mobile */
+  min-height: 100vh;
+}
+
+/* Container Utama */
+.container {
+  width: 100%;
+  max-width: 600px; /* Maksimal lebar di desktop */
+  margin: 0 auto;
+}
+
+header h1 {
+  text-align: center;
+  margin-bottom: 1.25rem;
+  color: var(--primary);
+  font-size: 1.75rem;
+}
+
+/* Form Card */
+.card {
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column; /* Default stack vertikal untuk mobile kecil */
+  gap: 10px;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+input[type="text"], select {
+  width: 100%; /* Memastikan elemen tidak melebar dari parent */
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Filter Section */
+.filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 1rem;
+  background: var(--card-bg);
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+}
+
+.filter-container label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.filter-container select {
+  width: auto;
+  min-width: 130px;
+}
+
+/* Task List Items */
+.task-list {
+  list-style: none;
+  width: 100%;
+}
+
+.task-item {
+  background: var(--card-bg);
+  padding: 0.85rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  word-break: break-word; /* Mencegah teks panjang merusak layout */
+}
+
+.task-item.completed .task-title {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+
+.task-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1; /* Memasukkan fleksibilitas ruang teks */
+  min-width: 0; /* Menangani flexbox overflow bug di Chrome/Firefox */
+}
+
+.task-title {
+  font-size: 0.95rem;
+  overflow-wrap: anywhere; /* Memutus kata yang sangat panjang jika perlu */
+}
+
+.btn-delete {
+  background-color: var(--danger);
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  flex-shrink: 0; /* Tombol tidak akan mengkerut */
+}
+
+/* Media Query untuk Layar Tablet / Desktop (>= 480px) */
+@media (min-width: 480px) {
+  body {
+    padding: 2rem 1rem;
+  }
+  
+  .card {
+    flex-direction: row; /* Kembali menyamping jika layar cukup luas */
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+}
