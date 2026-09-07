@@ -60,3 +60,25 @@ task-management/
 │   └── app.js               # Logika penanganan DOM & AJAX Fetch API
 ├── .gitignore               # Mencegah komit node_modules & file sensitif
 └── README.md                # Dokumentasi proyek
+
+## 🚀 Cara Menjalankan Proyek (Running Instructions)
+
+Ikuti langkah-langkah di bawah ini untuk menjalankan aplikasi secara lokal:
+
+### 1. Menjalankan Backend Server
+
+Buka terminal, lalu masuk ke folder `backend`:
+
+```bash
+cd backend
+
+Pastikan sudah membuat file .env untuk konfigurasi credential database postgresql dengan format berikut 
+# Database Configuration
+DB_USER=postgres
+DB_HOST=localhost
+DB_NAME=task_db
+DB_PASSWORD=
+DB_PORT=
+
+# Application Server Port
+PORT=
